@@ -1,26 +1,27 @@
-#include "scientist.h"
-#include <String>
+//#include "scientist.h"
+#include <string>
+#include<iostream>
 
 
-class Scientist(){
+class Scientist{
 
    public:
 
                 Scientist();
 
     private:
-                String name;
-                String sex;
-                String bday;
-                String dday;
+                std::string name;
+                std::string sex;
+                std::string bday;
+                std::string dday;
 
-}
+};
 
 Scientist::Scientist()
 {
     name="";
     sex="";
-    bbday="";
+    bday="";
     dday="";
 
 }

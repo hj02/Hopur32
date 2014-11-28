@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 3.2.1, 2014-11-28T14:43:15. -->
+=======
+<!-- Written by QtCreator 3.2.2, 2014-11-28T14:43:45. -->
+>>>>>>> 1953e77a0a409ad692522ac77ba26a08c72432e0
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -236,7 +240,11 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">ITCrowd</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/agnesjohannesdottir/Hopur32/ITCrowd/ITCrowd.pro</value>
+=======
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Doris/Documents/HR/Verklegt1/Hopur32/ITCrowd/ITCrowd.pro</value>
+>>>>>>> 1953e77a0a409ad692522ac77ba26a08c72432e0
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">ITCrowd.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
