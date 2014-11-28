@@ -1,9 +1,9 @@
-//#include "scientist.h"
+#include "scientist.h"
 #include <string>
 #include<iostream>
 
 
-class Scientist{
+/*class Scientist{
 
    public:
 
@@ -15,7 +15,7 @@ class Scientist{
                 std::string bday;
                 std::string dday;
 
-};
+};*/
 
 Scientist::Scientist()
 {
