@@ -10,6 +10,9 @@ using namespace std;
 
 class Scientist
 {
+private:
+
+
 public:
     Scientist();
     Scientist(string inName, string inSex, string inBday, string inDday);
@@ -17,7 +20,6 @@ public:
     string sex;
     string bday;
     string dday;
-
 };
 
 #endif // SCIENTIST_H
