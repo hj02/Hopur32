@@ -54,5 +54,5 @@ void Scientist::setBday(string b){
 
 void Scientist::setDday(string d){
     dday=d;
-};
+}
 
