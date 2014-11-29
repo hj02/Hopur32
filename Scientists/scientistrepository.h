@@ -13,6 +13,7 @@ private:
 public:
     ScientistRepository();
     void add(Scientist s);
+
 };
 
 #endif // SCIENTISTREPOSITORY_H

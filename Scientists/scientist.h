@@ -20,6 +20,7 @@ public:
     string sex;
     string bday;
     string dday;
+    friend ostream& operator << (ostream& out, Scientist s);
 };
 
 #endif // SCIENTIST_H

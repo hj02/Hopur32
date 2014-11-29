@@ -11,6 +11,7 @@ private:
 public:
     ScientistService();
     void add(Scientist s);
+
 };
 
 #endif // SCIENTISTSERVICE_H

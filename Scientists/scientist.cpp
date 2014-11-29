@@ -16,3 +16,9 @@ Scientist::Scientist(string inName, string inSex, string inBday, string inDday)
     dday = inDday;
 }
 
+ostream& operator << (ostream& out, Scientist s){
+
+  out<<s.name<<";"<<s.sex<<";"<<s.bday<<";"<<s.dday<<";";
+
+    return out;
+}
