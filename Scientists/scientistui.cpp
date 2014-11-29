@@ -15,4 +15,5 @@ void ScientistUI::start()
         cin >> s.name >> s.sex >> s.bday >> s.dday;
         scientistService.add(s);
     }
+
 }

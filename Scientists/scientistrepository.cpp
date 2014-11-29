@@ -9,3 +9,4 @@ void ScientistRepository::add(Scientist s)
 {
     scientistVector.push_back(s);
 }
+

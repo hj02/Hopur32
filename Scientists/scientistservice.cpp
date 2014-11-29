@@ -10,3 +10,4 @@ void ScientistService::add(Scientist s)
 {
     scientistRepo.add(s);
 }
+
