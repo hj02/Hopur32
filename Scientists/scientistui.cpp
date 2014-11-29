@@ -8,12 +8,38 @@ ScientistUI::ScientistUI()
 void ScientistUI::start()
 {
     string inp;
-    cout << "Welcome to the Scientist database" << endl;
 
-    if(inp == "add"){
+    cout << "Welcome to the Scientist database" << endl;
+    cout << "Please choose between the following: " << endl;
+    cout << "Enter: add to add a Scientist" << endl;
+    cout << "Enter: read to add a Scientist" << endl;
+    cout << "To quit the program Enter: Q" << endl;
+    cout << "Choose now: ";
+
+    while(inp != "Q"){
+        cin >> inp;
+
         Scientist s = Scientist();
-        cin >> s.name >> s.sex >> s.bday >> s.dday;
-        scientistService.add(s);
+
+        if(inp == "add"){
+            cout << "Name: ";
+            cin >> s.name;
+            cout << "Sex: ";
+            cin >> s.sex;
+            cout << "Born year: ";
+            cin >> s.bday;
+            cout << "Died year: ";
+            cin >> s.dday;
+            scientistService.add(s);
+        }
+        else if(inp == "read"){
+            cout << endl;
+            cout << "Name: " << s.name << endl;
+            cout << "Sex: " << s.sex << endl;
+            cout << "Born year: " << s.bday << endl;
+            cout << "Year died: " << s.dday << endl;
+        }
+        cout << "Choose add, read or Q: ";
     }
 
 }
