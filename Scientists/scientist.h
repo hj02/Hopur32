@@ -1,6 +1,8 @@
 #ifndef SCIENTIST_H
 #define SCIENTIST_H
-#include<string>
+
+#include <string>
+
 using namespace std;
 
 class Scientist
