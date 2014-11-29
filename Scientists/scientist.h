@@ -21,6 +21,15 @@ public:
     string bday;
     string dday;
     friend ostream& operator << (ostream& out, Scientist s);
+    string getName();
+    string getSex();
+    string getBday();
+    string getDday();
+    void setName(string n);
+    void setSex(string s);
+    void setBday(string b);
+    void setDday(string d);
+
 };
 
 #endif // SCIENTIST_H

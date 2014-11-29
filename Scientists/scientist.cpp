@@ -22,3 +22,37 @@ ostream& operator << (ostream& out, Scientist s){
 
     return out;
 }
+
+string Scientist::getName(){
+    return name;
+}
+
+string Scientist::getSex(){
+    return sex;
+}
+
+string Scientist::getBday(){
+    return bday;
+}
+
+string Scientist::getDday(){
+    return dday;
+}
+
+void Scientist::setName(string n){
+
+    name=n;
+}
+
+void Scientist::setSex(string s){
+    sex=s;
+}
+
+void Scientist::setBday(string b){
+    bday=b;
+}
+
+void Scientist::setDday(string d){
+    dday=d;
+};
+
