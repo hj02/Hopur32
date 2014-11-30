@@ -20,11 +20,14 @@ public:
     string sex;
     string bday;
     string dday;
+    // haegt er ad prenta eh af taginu Scientist audveldlega
     friend ostream& operator << (ostream& out, Scientist s);
+    // naudsynleg foll til ad nota medlimabreyturnar lika i scientistrepository
     string getName();
     string getSex();
     string getBday();
     string getDday();
+    // foll til ad einfalda breytingu a Scientist
     void setName(string n);
     void setSex(string s);
     void setBday(string b);

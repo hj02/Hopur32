@@ -8,18 +8,21 @@ ScientistUI::ScientistUI()
 void ScientistUI::start()
 {
     string inp;
+    vector<Scientist> v;
 
     cout << "Welcome to the Scientist database" << endl;
     cout << "Please choose between the following: " << endl;
     cout << "Enter: add to add a Scientist" << endl;
     cout << "Enter: read to add a Scientist" << endl;
     cout << "To quit the program Enter: Q" << endl;
-    cout << "Choose now: ";
+    cout << "Choose now: "<<endl;
+
+    Scientist s = Scientist();
 
     while(inp != "Q"){
         cin >> inp;
 
-        Scientist s = Scientist();
+
 
         if(inp == "add"){
             cout << "Name: ";
@@ -43,3 +46,4 @@ void ScientistUI::start()
     }
 
 }
+

@@ -11,3 +11,14 @@ void ScientistService::add(Scientist s)
     scientistRepo.add(s);
 }
 
+void ScientistService::read(){
+
+    scientistRepo.read();
+}
+
+void ScientistService::print(){
+
+
+   scientistRepo.print();
+
+}
