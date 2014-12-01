@@ -15,6 +15,7 @@ public:
     void read();
     void print();
     void find();
+    void write();
 };
 
 #endif // SCIENTISTSERVICE_H

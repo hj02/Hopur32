@@ -41,10 +41,6 @@ void ScientistRepository::read(){
         while(!in.eof()){
         for(int j=0; j<5; j++){
 
-
-
-
-
             if(j==0){
                  s.setNr(line);
             }
@@ -178,3 +174,28 @@ void ScientistRepository::firstToUpper(string& finding, int lengd){
 
 }
 
+void ScientistRepository::write(){
+
+cout << "sladu inn skranna sem þu vilt skrifa i: ";
+string file;
+cin >> file;
+
+ofstream outs (file.c_str(), ofstream::trunc);
+
+
+// athuga hvort skráin hefur ekki pottþett opnast
+if(!outs.is_open()){
+
+    cout << "Ekki tokst ad opna skra";
+}
+else{
+
+    int a=scientistVector.size();
+
+    for(int i=0; i<a; i++){
+        outs<< scientistVector[i];
+    }
+
+    outs.close();}
+
+}

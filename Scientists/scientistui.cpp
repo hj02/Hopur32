@@ -8,7 +8,7 @@ ScientistUI::ScientistUI()
 void ScientistUI::start()
 {
 
-   string inp,n,sex,b,d;
+   /*string inp,n,sex,b,d;
     vector<Scientist> v;
 
     cout << "Welcome to the Scientist database" << endl;
@@ -49,7 +49,7 @@ void ScientistUI::start()
             cout << "Year died: " << s.getDday() << endl;
         }
         cout << "Choose add, read or Q: ";
-    }
+    }*/
 
 }
 

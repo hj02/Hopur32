@@ -28,3 +28,8 @@ void ScientistService::find(){
     scientistRepo.find();
 
 }
+
+void ScientistService::write(){
+
+    scientistRepo.write();
+}
