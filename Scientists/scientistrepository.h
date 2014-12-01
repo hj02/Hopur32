@@ -10,6 +10,8 @@ class ScientistRepository
 {
 private:
     vector<Scientist> scientistVector;
+
+
 public:
     ScientistRepository();
     void add(Scientist s);
@@ -18,6 +20,8 @@ public:
     void find();
     vector<Scientist> getVector(); //gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
     void setVector(vector<Scientist> v);// gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
+    void firstToUpper(string& finding, int lengd);
+    void stringToLower(int lengd, string& finding);
 
 
 };

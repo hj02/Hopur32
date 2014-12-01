@@ -1,6 +1,9 @@
 #include "scientistrepository.h"
 #include <fstream>
 #include <string>
+#include <cctype>
+#include <iostream>
+using namespace std;
 
 
 ScientistRepository::ScientistRepository()
@@ -17,7 +20,6 @@ void ScientistRepository::add(Scientist s)
 void ScientistRepository::read(){
 
     string file;  // nafnid a skránni sem vid viljum lesa inn
-    int i=0; // nota þessa breytu til að vita hvada medlimabreytu textinn sem vid lesum inn tilheyrir(skoda fyrir nedan)
 
     cout << "Skrifaðu inn heiti á skrá sem þú vilt að lesið er úr: ";
     cin >> file;
@@ -34,28 +36,45 @@ void ScientistRepository::read(){
     else{
         Scientist s;
         cout <<"það tókst að opna skrá!"<< endl;
-        while(getline(in,line,';')){ // les inn strenginn line sem endar við semíkommu
+        getline(in,line,';');
 
-         if(i==0){
-            s.setName(line);
+        while(!in.eof()){
+        for(int j=0; j<5; j++){
 
-         }
-         if(i==1){
-            s.setSex(line);
-         }
-         if(i==2){
-            s.setBday(line);
-         }
-         if(i==3){
-            s.setDday(line);
-            scientistVector.push_back(s); // allar medlimabreytur s hafa verid lesnar inn svo við baetum s inni vektorinn okkar og byrjum uppa nytt
-            i=-1; // upphafstilla i uppa nytt
-         }
 
-         i++;
-         }
+
+
+
+            if(j==0){
+                 s.setNr(line);
+            }
+
+
+            if(j==1){
+                s.setName(line);
+
+            }
+            if(j==2){
+                s.setSex(line);
+            }
+            if(j==3){
+                s.setBday(line);
+            }
+            if(j==4){
+                s.setDday(line);
+                scientistVector.push_back(s); // allar medlimabreytur s hafa verid lesnar inn svo við baetum s inni vektorinn okkar og byrjum uppa nytt
+                in.ignore();// ignora endl
+            }
+             getline(in,line,';');
+          }
+
+
+
+        }
 
         in.close(); // loka skránni
+
+
     }
 }
 
@@ -72,38 +91,90 @@ void ScientistRepository::setVector(vector<Scientist> v){
 
 void ScientistRepository::print(){
 
-    for(int i=0; i<scientistVector.size(); i++){
+    int a=scientistVector.size();
+
+    for(int i=0; i<a; i++){
         cout<< scientistVector[i];
     }
 
 }
 
 void ScientistRepository::find()
-{   cout << "Sladu inn leitarord: ";
+{
+    cout << "Sladu inn leitarord: ";
     string finding;
-    cin >> finding;
     int  a = scientistVector.size();
+
+    cin.ignore();
+    getline(cin, finding);
+
     cout << "Vísindamenn sem possudu vid leitarord: "<< endl;
 
+
+    int lengd = finding.length();
+
+    stringToLower(lengd,finding);
+
+    firstToUpper(finding, lengd);
+
+
     for(int i = 0; i < a; i++)
+       {
+           if(finding == scientistVector[i].getNr()){
+
+               cout << scientistVector[i];
+           }
+
+           if(finding == scientistVector[i].getName())
+           {
+               cout << scientistVector[i];
+           }
+           if(finding == scientistVector[i].getSex())
+           {
+               cout << scientistVector[i];
+           }
+           if(finding == scientistVector[i].getBday())
+           {
+               cout << scientistVector[i];
+           }
+           if(finding == scientistVector[i].getDday())
+           {
+               cout << scientistVector[i];
+           }
+        }
+
+
+}
+
+void ScientistRepository::stringToLower(int lengd, string& finding){
+
+    for(int i = 0; i < lengd ; i ++)
     {
-        if(finding == scientistVector[i].getName())
+        finding[i] = tolower(finding[i]);
+
+    }
+
+
+}
+
+void ScientistRepository::firstToUpper(string& finding, int lengd){
+    int teljari = -1;
+
+    finding[0] = toupper(finding[0]);
+
+    for(int i = 0; i < lengd; i++)
+    {
+        if(isspace(finding[i]))
         {
-            cout << scientistVector[i];
+          teljari = teljari -1;
         }
-        if(finding == scientistVector[i].getSex())
+        if(teljari < -1)
         {
-            cout << scientistVector[i];
+            finding[i+1] = toupper(finding[i+1]);
+            teljari = -1;
         }
-        if(finding == scientistVector[i].getBday())
-        {
-            cout << scientistVector[i];
-        }
-        if(finding == scientistVector[i].getDday())
-        {
-            cout << scientistVector[i];
-        }
-     }
+
+    }
 
 }
 

@@ -7,7 +7,8 @@ ScientistUI::ScientistUI()
 }
 void ScientistUI::start()
 {
-    string inp;
+
+   string inp,n,sex,b,d;
     vector<Scientist> v;
 
     cout << "Welcome to the Scientist database" << endl;
@@ -18,7 +19,7 @@ void ScientistUI::start()
     cout << "Choose now: "<<endl;
 
 
-    Scientist s = Scientist();
+   Scientist s = Scientist();
 
     while(inp != "Q"){
         cin >> inp;
@@ -27,21 +28,25 @@ void ScientistUI::start()
 
         if(inp == "add"){
             cout << "Name: ";
-            cin >> s.name;
+            cin >> n;
+            s.setName(n);
             cout << "Sex: ";
-            cin >> s.sex;
+            cin >> sex;
+            s.setSex(sex);
             cout << "Born year: ";
-            cin >> s.bday;
+            cin >>b;
+            s.setBday(b);
             cout << "Died year: ";
-            cin >> s.dday;
+            cin >> d;
+            s.setDday(d);
             scientistService.add(s);
         }
         else if(inp == "read"){
             cout << endl;
-            cout << "Name: " << s.name << endl;
-            cout << "Sex: " << s.sex << endl;
-            cout << "Born year: " << s.bday << endl;
-            cout << "Year died: " << s.dday << endl;
+            cout << "Name: " << s.getName() << endl;
+            cout << "Sex: " << s.getSex() << endl;
+            cout << "Born year: " << s.getBday() << endl;
+            cout << "Year died: " << s.getDday() << endl;
         }
         cout << "Choose add, read or Q: ";
     }

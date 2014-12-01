@@ -2,14 +2,16 @@
 
 Scientist::Scientist()
 {
+    nr="";
     name = "";
     sex = "";
     bday = "";
     dday = "";
 }
 
-Scientist::Scientist(string inName, string inSex, string inBday, string inDday)
+Scientist::Scientist(string NR,string inName, string inSex, string inBday, string inDday)
 {
+    nr=NR;
     name = inName;
     sex = inSex;
     bday = inBday;
@@ -18,9 +20,13 @@ Scientist::Scientist(string inName, string inSex, string inBday, string inDday)
 
 ostream& operator << (ostream& out, Scientist s){
 
-  out<<s.name<<";"<<s.sex<<";"<<s.bday<<";"<<s.dday<<";";
+  out<<s.nr<<";"<< s.name<<";"<<s.sex<<";"<<s.bday<<";"<<s.dday<<";"<<endl;
 
     return out;
+}
+
+string Scientist::getNr(){
+    return nr;
 }
 
 string Scientist::getName(){
@@ -39,6 +45,10 @@ string Scientist::getDday(){
     return dday;
 }
 
+void Scientist::setNr(string NR){
+    nr = NR;
+}
+
 void Scientist::setName(string n){
 
     name=n;
@@ -55,4 +65,5 @@ void Scientist::setBday(string b){
 void Scientist::setDday(string d){
     dday=d;
 }
+
 
