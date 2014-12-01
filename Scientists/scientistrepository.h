@@ -15,6 +15,7 @@ public:
     void add(Scientist s);
     void read(); //les gogn ur skra og breytir i vektor þ.e vektorinn scientistVector (sem er private breyta)
     void print(); // prentar ut vektorinn scientistVector
+    void find();
     vector<Scientist> getVector(); //gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
     void setVector(vector<Scientist> v);// gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
 

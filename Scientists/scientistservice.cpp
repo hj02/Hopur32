@@ -22,3 +22,9 @@ void ScientistService::print(){
    scientistRepo.print();
 
 }
+
+void ScientistService::find(){
+
+    scientistRepo.find();
+
+}

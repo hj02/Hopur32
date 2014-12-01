@@ -17,6 +17,7 @@ void ScientistUI::start()
     cout << "To quit the program Enter: Q" << endl;
     cout << "Choose now: "<<endl;
 
+
     Scientist s = Scientist();
 
     while(inp != "Q"){

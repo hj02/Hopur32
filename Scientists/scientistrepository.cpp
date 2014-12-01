@@ -77,3 +77,33 @@ void ScientistRepository::print(){
     }
 
 }
+
+void ScientistRepository::find()
+{   cout << "Sladu inn leitarord: ";
+    string finding;
+    cin >> finding;
+    int  a = scientistVector.size();
+    cout << "Vísindamenn sem possudu vid leitarord: "<< endl;
+
+    for(int i = 0; i < a; i++)
+    {
+        if(finding == scientistVector[i].getName())
+        {
+            cout << scientistVector[i];
+        }
+        if(finding == scientistVector[i].getSex())
+        {
+            cout << scientistVector[i];
+        }
+        if(finding == scientistVector[i].getBday())
+        {
+            cout << scientistVector[i];
+        }
+        if(finding == scientistVector[i].getDday())
+        {
+            cout << scientistVector[i];
+        }
+     }
+
+}
+
