@@ -24,7 +24,6 @@ void ScientistRepository::add(Scientist s)
           firstToUpper(n, lengd);
           s.setName(n);
 
-
           cout << "Sex: ";
           getline(cin, sex);
           s.setSex(sex);
