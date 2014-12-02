@@ -17,17 +17,24 @@ void ScientistRepository::add()
         Scientist s;
         string n,sex,b,d;
 
+          cout << endl;
           cout << "Name: ";
-          cin >> n;
+          cin.ignore();
+          getline(cin, n);
+          int lengd = n.length();
+          firstToUpper(n, lengd);
           s.setName(n);
+
           cout << "Sex: ";
-          cin >> sex;
+          getline(cin, sex);
           s.setSex(sex);
+
           cout << "Born year: ";
-          cin >>b;
+          getline(cin, b);
           s.setBday(b);
+
           cout << "Died year: ";
-          cin >> d;
+          getline(cin, d);
           s.setDday(d);
 
           scientistVector.push_back(s);
@@ -40,8 +47,10 @@ void ScientistRepository::read(){
 
     string file;  // nafnid a skránni sem vid viljum lesa inn
 
-    cout << "Skrifaðu inn heiti á skrá sem þú vilt að lesið er úr: ";
-    cin >> file;
+    //cout << "Enter the name of the file you want to write in: ";
+    //cin >> file;
+
+    file = "file.txt";
 
     ifstream in(file.c_str()); // by til nyjan straum sem opnar skránna file (fallid c_str() breytur string i c-string, þ.e tekur /O af strengnum)
     string line;
@@ -49,12 +58,12 @@ void ScientistRepository::read(){
     // athuga hvort skráin hefur ekki pottþett opnast
     if(!in.is_open()){
 
-        cout << "Ekki tokst ad opna skra";
+        cout << "The file didn't open!" << endl;
     }
 
     else{
         Scientist s;
-        cout <<"það tókst að opna skrá!"<< endl;
+        //cout <<"Success! The file is open!"<< endl;
         getline(in,line,';');
 
         while(!in.eof()){
@@ -111,15 +120,13 @@ void ScientistRepository::print(){
 
 void ScientistRepository::find()
 {
-
-    cout << "Sladu inn leitarord: ";
+    int co = 0;
+    cout << "Enter your search option: ";
     string finding;
     int  a = scientistVector.size();
 
     cin.ignore();
     getline(cin, finding);
-
-    cout << "Vísindamenn sem possudu vid leitarord: "<< endl<<endl;
 
 
     int lengd = finding.length();
@@ -134,12 +141,19 @@ void ScientistRepository::find()
 
            if(finding == scientistVector[i].getName())
            {
+               co =  co + 1;
+               if(co == 1)
+               {
+                       cout << "Scientits which matched your search: "<< endl<<endl;
+               }
 
+               cout << endl;
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
                cout << "Birthday: "<< scientistVector[i].getBday() << endl;
                cout << "Date of death: "<< scientistVector[i].getDday()<< endl;
                cout << endl;
+
            }
 
            else{
@@ -149,6 +163,11 @@ void ScientistRepository::find()
            }
            if(finding == scientistVector[i].getSex())
            {
+               co =  co + 1;
+               if(co == 1)
+               {
+                       cout << "Scientits which matched your search: "<< endl<<endl;
+               }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
@@ -158,6 +177,11 @@ void ScientistRepository::find()
            }
            if(finding == scientistVector[i].getBday())
            {
+               co =  co + 1;
+               if(co == 1)
+               {
+                       cout << "Scientits which matched your search: "<< endl<<endl;
+               }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
@@ -167,6 +191,11 @@ void ScientistRepository::find()
            }
            if(finding == scientistVector[i].getDday())
            {
+               co =  co + 1;
+               if(co == 1)
+               {
+                       cout << "Scientits which matched your search: "<< endl<<endl;
+               }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
@@ -179,7 +208,10 @@ void ScientistRepository::find()
 
         }
 
-
+    if(co == 0 )
+    {
+        cout << "Scientist not found!" << endl << endl;
+    }
 }
 
 void ScientistRepository::stringToLower(int lengd, string& finding){
@@ -189,8 +221,6 @@ void ScientistRepository::stringToLower(int lengd, string& finding){
         finding[i] = tolower(finding[i]);
 
     }
-
-
 }
 
 void ScientistRepository::firstToUpper(string& finding, int lengd){
@@ -216,9 +246,10 @@ void ScientistRepository::firstToUpper(string& finding, int lengd){
 
 void ScientistRepository::write(){
 
-cout << "sladu inn skranna sem þu vilt skrifa i: ";
+//cout << "Enter the name of the file you want to write in: ";
 string file;
-cin >> file;
+//cin >> file;
+file = "file.txt";
 
 ofstream outs (file.c_str(), ofstream::trunc);
 
@@ -226,7 +257,7 @@ ofstream outs (file.c_str(), ofstream::trunc);
 // athuga hvort skráin hefur ekki pottþett opnast
 if(!outs.is_open()){
 
-    cout << "Ekki tokst ad opna skra";
+    cout << "The file didn't open! " << endl;
 }
 else{
 
@@ -237,7 +268,6 @@ else{
     }
 
     outs.close();}
-
 }
 
 void ScientistRepository::READ(){
