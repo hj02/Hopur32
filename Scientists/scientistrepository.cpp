@@ -287,7 +287,7 @@ void ScientistRepository::READ(){
 
     }
 }
-
+/*
 
 void ScientistRepository::sortName(){
 
@@ -379,3 +379,4 @@ void ScientistRepository::Sort(){
    }
    write();
 }
+*/

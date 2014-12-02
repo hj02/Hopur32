@@ -38,9 +38,10 @@ void ScientistService::READ(){
 
     scientistRepo.READ();
 }
-
+/*
 void ScientistService::Sort(){
 
     scientistRepo.Sort();
 
 }
+*/

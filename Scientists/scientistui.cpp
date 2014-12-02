@@ -32,7 +32,7 @@ void ScientistUI::start()
 
     }
 
-    while(inp !="q"){
+    while(inp !="q" && inp != "Q"){
 
         if(inp == "add"){
 
@@ -46,12 +46,12 @@ void ScientistUI::start()
 
             scientistService.find();
         }
-        else if(inp=="sort"){
+        /*else if(inp=="sort"){
 
             scientistService.Sort();
 
-        }
-        else if(inp=="q"){
+        }*/
+        else if(inp=="q" || inp=="Q"){
            break;
         }
 
