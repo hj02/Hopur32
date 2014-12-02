@@ -11,12 +11,14 @@ private:
     ScientistRepository scientistRepo;
 public:
     ScientistService();
-    void add(Scientist s);
+    void add();
     void read();
     void print();
     void find();
     void write();
     void READ();
+    void sort();
 };
+
 
 #endif // SCIENTISTSERVICE_H

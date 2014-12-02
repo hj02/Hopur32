@@ -8,7 +8,6 @@ ScientistUI::ScientistUI()
 void ScientistUI::start()
 {
     string inp;
-    Scientist s;
     scientistService.read();
 
     cout << "Welcome to the Scientist database" << endl;
@@ -27,8 +26,8 @@ void ScientistUI::start()
 
         if(inp == "add"){
 
-            scientistService.add(s);
-            scientistService.read();
+            scientistService.add();
+
         }
         if(inp == "read"){
            scientistService.READ();
@@ -36,6 +35,11 @@ void ScientistUI::start()
         if(inp=="find"){
 
             scientistService.find();
+        }
+        if(inp=="sort"){
+
+            scientistService.sort();
+
         }
         if(inp=="Q"){
 

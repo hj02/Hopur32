@@ -58,4 +58,3 @@ void Scientist::setDday(string d){
     dday=d;
 }
 
-

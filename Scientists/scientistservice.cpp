@@ -6,9 +6,9 @@ ScientistService::ScientistService()
     scientistRepo = ScientistRepository();
 }
 
-void ScientistService::add(Scientist s)
+void ScientistService::add()
 {
-    scientistRepo.add(s);
+    scientistRepo.add();
 }
 
 void ScientistService::read(){
@@ -37,4 +37,10 @@ void ScientistService::write(){
 void ScientistService::READ(){
 
     scientistRepo.READ();
+}
+
+void ScientistService::sort(){
+
+    scientistRepo.sort();
+
 }

@@ -3,6 +3,7 @@
 #include <string>
 #include <cctype>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 
@@ -11,10 +12,10 @@ ScientistRepository::ScientistRepository()
     scientistVector = vector<Scientist>();
 }
 
-void ScientistRepository::add(Scientist s)
+void ScientistRepository::add()
 {
+        Scientist s;
         string n,sex,b,d;
-        vector<Scientist> v;
 
           cout << "Name: ";
           cin >> n;
@@ -254,4 +255,116 @@ void ScientistRepository::READ(){
         cout << endl;
 
     }
+}
+
+/*bool ScientistRepository::compareName(const Scientist &a,const Scientist &b){
+
+    return a.getName()<b.getName();
+
+}
+bool ScientistRepository::compareSex (const Scientist &a,const Scientist &b){
+
+    return a.getSex()<b.getSex();
+
+}
+bool ScientistRepository::compareBday(const Scientist &a,const Scientist &b){
+
+    return a.getBday()<b.getBday();
+
+}
+bool ScientistRepository::compareDday(const Scientist &a,const Scientist &b){
+
+    return a.getDday()<b.getDday();
+
+}*/
+
+void ScientistRepository::sortName(){
+
+
+    struct {
+           bool operator()(Scientist a, Scientist b)
+           {
+               return a.getName() < b.getName();
+           }
+       } comparename;
+       std::sort(scientistVector.begin(), scientistVector.end(), comparename);
+
+}
+
+void ScientistRepository::sortSex(){
+
+    struct {
+    bool operator()(Scientist a, Scientist b)
+        {
+          return a.getSex() < b.getSex();
+        }
+     } comparesex;
+
+    std::sort(scientistVector.begin(), scientistVector.end(), comparesex);
+
+}
+
+void ScientistRepository::sortBday(){
+
+    struct{
+
+    bool operator()(Scientist a, Scientist b)
+    {
+      return a.getBday() < b.getBday();
+     }
+     } comparebday;
+
+    std::sort(scientistVector.begin(), scientistVector.end(), comparebday);
+
+}
+
+void ScientistRepository::sortDday(){
+
+    struct {
+    bool operator()(Scientist a, Scientist b)
+    {
+      return a.getDday() < b.getDday();
+  }
+ } comparedday;
+
+    std::sort(scientistVector.begin(), scientistVector.end(), comparedday);
+
+}
+
+void ScientistRepository::sort(){
+
+    string a;
+
+    cout<<"In which row would you like to sort";
+    cin >> a;
+    int b;
+
+    if(a=="name")
+        b=1;
+    if(a=="sex")
+        b=1;
+    if(a=="birthday")
+        b=2;
+    if(a=="date of death")
+        b=3;
+
+   switch(b){
+
+
+       case 1:
+           sortName();
+           break;
+      case 2:
+           sortSex();
+           break;
+       case 3:
+           sortBday();
+           break;
+       case 4:
+           sortDday();
+           break;
+       default: break;
+
+   }
+   write();
 }
