@@ -26,6 +26,7 @@ void ScientistUI::start()
 
 
         if(inp == "add"){
+
             scientistService.add(s);
             scientistService.read();
         }

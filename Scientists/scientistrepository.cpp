@@ -39,24 +39,19 @@ void ScientistRepository::read(){
         getline(in,line,';');
 
         while(!in.eof()){
-        for(int j=0; j<5; j++){
+        for(int j=0; j<4; j++){
 
             if(j==0){
-                 s.setNr(line);
-            }
-
-
-            if(j==1){
                 s.setName(line);
 
             }
-            if(j==2){
+            if(j==1){
                 s.setSex(line);
             }
-            if(j==3){
+            if(j==2){
                 s.setBday(line);
             }
-            if(j==4){
+            if(j==3){
                 s.setDday(line);
                 scientistVector.push_back(s); // allar medlimabreytur s hafa verid lesnar inn svo við baetum s inni vektorinn okkar og byrjum uppa nytt
                 in.ignore();// ignora endl
@@ -117,20 +112,10 @@ void ScientistRepository::find()
 
     for(int i = 0; i < a; i++)
        {
-           if(finding == scientistVector[i].getNr()){
-
-               cout << "Nr."<< scientistVector[i].getNr() << endl;
-               cout << "Name: " << scientistVector[i].getName() << endl;
-               cout << "Sex: "<< scientistVector[i].getSex() << endl;
-               cout << "Birthday: "<< scientistVector[i].getBday() << endl;
-               cout << "Date of death: "<< scientistVector[i].getDday()<< endl;
-               cout << endl;
-           }
-
 
            if(finding == scientistVector[i].getName())
            {
-               cout << "Nr."<< scientistVector[i].getNr() << endl;
+
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
                cout << "Birthday: "<< scientistVector[i].getBday() << endl;
@@ -145,7 +130,7 @@ void ScientistRepository::find()
            }
            if(finding == scientistVector[i].getSex())
            {
-               cout << "Nr."<< scientistVector[i].getNr() << endl;
+
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
                cout << "Birthday: "<< scientistVector[i].getBday() << endl;
@@ -154,7 +139,7 @@ void ScientistRepository::find()
            }
            if(finding == scientistVector[i].getBday())
            {
-               cout << "Nr."<< scientistVector[i].getNr() << endl;
+
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
                cout << "Birthday: "<< scientistVector[i].getBday() << endl;
@@ -163,7 +148,7 @@ void ScientistRepository::find()
            }
            if(finding == scientistVector[i].getDday())
            {
-               cout << "Nr."<< scientistVector[i].getNr() << endl;
+
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
                cout << "Birthday: "<< scientistVector[i].getBday() << endl;
@@ -244,8 +229,6 @@ void ScientistRepository::READ(){
     for(int i=0; i<a; i++){
 
 
-
-        cout << "Nr."<< scientistVector[i].getNr() << endl;
         cout << "Name: " << scientistVector[i].getName() << endl;
         cout << "Sex: "<< scientistVector[i].getSex() << endl;
         cout << "Birthday: "<< scientistVector[i].getBday() << endl;
