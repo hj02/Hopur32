@@ -268,6 +268,7 @@ else{
     }
 
     outs.close();}
+    read();
 }
 
 void ScientistRepository::READ(){
@@ -287,26 +288,6 @@ void ScientistRepository::READ(){
     }
 }
 
-/*bool ScientistRepository::compareName(const Scientist &a,const Scientist &b){
-
-    return a.getName()<b.getName();
-
-}
-bool ScientistRepository::compareSex (const Scientist &a,const Scientist &b){
-
-    return a.getSex()<b.getSex();
-
-}
-bool ScientistRepository::compareBday(const Scientist &a,const Scientist &b){
-
-    return a.getBday()<b.getBday();
-
-}
-bool ScientistRepository::compareDday(const Scientist &a,const Scientist &b){
-
-    return a.getDday()<b.getDday();
-
-}*/
 
 void ScientistRepository::sortName(){
 
@@ -361,7 +342,7 @@ void ScientistRepository::sortDday(){
 
 }
 
-void ScientistRepository::sort(){
+void ScientistRepository::Sort(){
 
     string a;
 

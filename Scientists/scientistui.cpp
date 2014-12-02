@@ -1,4 +1,5 @@
 #include "scientistui.h"
+#include <cctype>
 using namespace std;
 
 ScientistUI::ScientistUI()
@@ -8,10 +9,8 @@ ScientistUI::ScientistUI()
 void ScientistUI::start()
 {
     scientistService.read();
+
     string inp;
-
-    scientistService.read();
-
     Scientist s;
 
 
@@ -26,17 +25,18 @@ void ScientistUI::start()
     cout << "Choose now: ";
 
     cin >> inp;
+    int a= inp.length();
+    for(int i = 0; i < a; i ++)
+    {
+        inp[i] = tolower(inp[i]);
 
-    while(inp != "Q" && inp != "q"){
+    }
 
+    while(inp !="q"){
 
         if(inp == "add"){
 
-
-            scientistService.add();
-
-
-            scientistService.read();
+          scientistService.add();
 
         }
         else if(inp == "read"){
@@ -46,16 +46,15 @@ void ScientistUI::start()
 
             scientistService.find();
         }
-        if(inp=="sort"){
+        else if(inp=="sort"){
 
-            scientistService.sort();
+            scientistService.Sort();
 
         }
-        else if(inp=="Q" || inp=="q"){
-
-
-            break;
+        else if(inp=="q"){
+           break;
         }
+
         else{
             cout << "This is not a valid option!" << endl;
         }
@@ -64,5 +63,4 @@ void ScientistUI::start()
     }
 
 }
-
 

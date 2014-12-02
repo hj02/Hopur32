@@ -17,7 +17,7 @@ public:
     void find();
     void write();
     void READ();
-    void sort();
+    void Sort();
 };
 
 

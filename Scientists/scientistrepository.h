@@ -14,6 +14,10 @@ private:
     vector<Scientist> scientistVector;
     void firstToUpper(string& finding, int lengd);
     void stringToLower(int lengd, string& finding);
+    void sortName();
+    void sortSex();
+    void sortBday();
+    void sortDday();
 
 
 
@@ -27,17 +31,7 @@ public:
     vector<Scientist> getVector(); //gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
     void setVector(vector<Scientist> v);// gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
     void READ();
-    void sort();
-    void sortName();
-    void sortSex();
-    void sortBday();
-    void sortDday();
-/*
-    bool compareName(const Scientist& a,const Scientist& b);
-    bool compareSex(const Scientist &a,const Scientist &b);
-    bool compareBday(const Scientist &a,const Scientist &b);
-    bool compareDday(const Scientist &a,const Scientist &b);*/
-
+    void Sort();
 
 };
 
