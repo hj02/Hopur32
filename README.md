@@ -9,8 +9,6 @@ Elín Rós Hauksdóttir
 
 Halldóra Jóhannsdóttir
 
-Ingólfur Steinar Pálsson
-
 Hugo Pétur Portal
 
 Notandi mun geta skráð þekktar persónur úr sögu tölvunarfræðinnar.
