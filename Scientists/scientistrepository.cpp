@@ -13,7 +13,23 @@ ScientistRepository::ScientistRepository()
 
 void ScientistRepository::add(Scientist s)
 {
-    scientistVector.push_back(s);
+        string n,sex,b,d;
+        vector<Scientist> v;
+
+          cout << "Name: ";
+          cin >> n;
+          s.setName(n);
+          cout << "Sex: ";
+          cin >> sex;
+          s.setSex(sex);
+          cout << "Born year: ";
+          cin >>b;
+          s.setBday(b);
+          cout << "Died year: ";
+          cin >> d;
+          s.setDday(d);
+
+          scientistVector.push_back(s);
 }
 
 
