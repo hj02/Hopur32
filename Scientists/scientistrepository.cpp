@@ -117,15 +117,13 @@ void ScientistRepository::print(){
 
 void ScientistRepository::find()
 {
-
+    int co = 0;
     cout << "Enter your search option: ";
     string finding;
     int  a = scientistVector.size();
 
     cin.ignore();
     getline(cin, finding);
-
-    cout << "Scientits which matched your search: "<< endl<<endl;
 
 
     int lengd = finding.length();
@@ -140,12 +138,18 @@ void ScientistRepository::find()
 
            if(finding == scientistVector[i].getName())
            {
+               co =  co + 1;
+               if(co == 1)
+               {
+                       cout << "Scientits which matched your search: "<< endl<<endl;
+               }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
                cout << "Birthday: "<< scientistVector[i].getBday() << endl;
                cout << "Date of death: "<< scientistVector[i].getDday()<< endl;
                cout << endl;
+
            }
 
            else{
@@ -155,6 +159,11 @@ void ScientistRepository::find()
            }
            if(finding == scientistVector[i].getSex())
            {
+               co =  co + 1;
+               if(co == 1)
+               {
+                       cout << "Scientits which matched your search: "<< endl<<endl;
+               }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
@@ -164,6 +173,11 @@ void ScientistRepository::find()
            }
            if(finding == scientistVector[i].getBday())
            {
+               co =  co + 1;
+               if(co == 1)
+               {
+                       cout << "Scientits which matched your search: "<< endl<<endl;
+               }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
@@ -173,6 +187,11 @@ void ScientistRepository::find()
            }
            if(finding == scientistVector[i].getDday())
            {
+               co =  co + 1;
+               if(co == 1)
+               {
+                       cout << "Scientits which matched your search: "<< endl<<endl;
+               }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
@@ -185,7 +204,10 @@ void ScientistRepository::find()
 
         }
 
-
+    if(co == 0 )
+    {
+        cout << "Scientist not found!" << endl << endl;
+    }
 }
 
 void ScientistRepository::stringToLower(int lengd, string& finding){
@@ -195,8 +217,6 @@ void ScientistRepository::stringToLower(int lengd, string& finding){
         finding[i] = tolower(finding[i]);
 
     }
-
-
 }
 
 void ScientistRepository::firstToUpper(string& finding, int lengd){
@@ -243,7 +263,6 @@ else{
     }
 
     outs.close();}
-
 }
 
 void ScientistRepository::READ(){
