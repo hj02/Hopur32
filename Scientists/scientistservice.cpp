@@ -33,3 +33,8 @@ void ScientistService::write(){
 
     scientistRepo.write();
 }
+
+void ScientistService::READ(){
+
+    scientistRepo.READ();
+}

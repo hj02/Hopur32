@@ -7,53 +7,42 @@ ScientistUI::ScientistUI()
 }
 void ScientistUI::start()
 {
-
+    string inp;
+    Scientist s;
     scientistService.read();
-    scientistService.print();
-    scientistService.find();
-
-  /* string inp,n,sex,b,d;
-    vector<Scientist> v;
 
     cout << "Welcome to the Scientist database" << endl;
     cout << "Please choose between the following: " << endl;
     cout << "Enter: add to add a Scientist" << endl;
-    cout << "Enter: read to add a Scientist" << endl;
+    cout << "Enter: read to read from the file" << endl;
+    cout << "Enter: find to find a scientist"<< endl;
+    cout << "Enter: sort to sort the scientists" << endl;
     cout << "To quit the program Enter: Q" << endl;
     cout << "Choose now: "<<endl;
 
-
-   Scientist s = Scientist();
+     cin >> inp;
 
     while(inp != "Q"){
-        cin >> inp;
-
 
 
         if(inp == "add"){
-            cout << "Name: ";
-            cin >> n;
-            s.setName(n);
-            cout << "Sex: ";
-            cin >> sex;
-            s.setSex(sex);
-            cout << "Born year: ";
-            cin >>b;
-            s.setBday(b);
-            cout << "Died year: ";
-            cin >> d;
-            s.setDday(d);
             scientistService.add(s);
+            scientistService.read();
         }
-        else if(inp == "read"){
-            cout << endl;
-            cout << "Name: " << s.getName() << endl;
-            cout << "Sex: " << s.getSex() << endl;
-            cout << "Born year: " << s.getBday() << endl;
-            cout << "Year died: " << s.getDday() << endl;
+        if(inp == "read"){
+           scientistService.READ();
         }
-        cout << "Choose add, read or Q: ";
-    }*/
+        if(inp=="find"){
+
+            scientistService.find();
+        }
+        if(inp=="Q"){
+
+            break;
+        }
+        cout << "Choose add, read, find, sort or Q: ";
+        cin >> inp;
+    }
 
 }
 

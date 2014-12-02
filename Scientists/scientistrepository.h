@@ -23,7 +23,7 @@ public:
     void write();
     vector<Scientist> getVector(); //gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
     void setVector(vector<Scientist> v);// gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
-
+    void READ();
 };
 
 #endif // SCIENTISTREPOSITORY_H
