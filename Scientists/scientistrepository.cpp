@@ -17,16 +17,23 @@ void ScientistRepository::add(Scientist s)
         vector<Scientist> v;
 
           cout << "Name: ";
-          cin >> n;
+          cin.ignore();
+          getline(cin, n);
+          int lengd = n.length();
+          firstToUpper(n, lengd);
           s.setName(n);
+
+
           cout << "Sex: ";
-          cin >> sex;
+          getline(cin, sex);
           s.setSex(sex);
+
           cout << "Born year: ";
-          cin >>b;
+          getline(cin, b);
           s.setBday(b);
+
           cout << "Died year: ";
-          cin >> d;
+          getline(cin, d);
           s.setDday(d);
 
           scientistVector.push_back(s);
