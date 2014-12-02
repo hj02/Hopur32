@@ -9,7 +9,6 @@ void ScientistUI::start()
 {
     string inp;
     Scientist s;
-    scientistService.read();
 
     cout << "Welcome to the Scientist database" << endl;
     cout << "Please choose between the following: " << endl;
@@ -18,17 +17,16 @@ void ScientistUI::start()
     cout << "Enter: find to find a scientist"<< endl;
     cout << "Enter: sort to sort the scientists" << endl;
     cout << "To quit the program Enter: Q" << endl;
-    cout << "Choose now: "<<endl;
+    cout << "Choose now: ";
 
-     cin >> inp;
+    cin >> inp;
 
     while(inp != "Q"){
 
 
         if(inp == "add"){
-
-            scientistService.add(s);
             scientistService.read();
+            scientistService.add(s);
         }
         if(inp == "read"){
            scientistService.READ();
