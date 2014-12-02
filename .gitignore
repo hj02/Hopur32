@@ -13,6 +13,7 @@
 *.dll
 *.dylib
 *.DS_Store
+*.rtf
 
 # Qt-es
 /.qmake.cache
