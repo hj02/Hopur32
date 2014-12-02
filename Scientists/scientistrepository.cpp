@@ -30,6 +30,8 @@ void ScientistRepository::add(Scientist s)
           s.setDday(d);
 
           scientistVector.push_back(s);
+
+          write();
 }
 
 
