@@ -305,7 +305,7 @@ void ScientistRepository::Sort(){
     string a;
 
     cout<<"In which row would you like to sort? "<<endl;
-    cout << "Choose 'name', 'sex', 'birthday' or 'date of death'."<<endl;
+    cout << "Choose 'name', 'sex', 'birthday' or 'date of death': "<<endl;
     cin.ignore();
     getline(cin,a);
 
