@@ -3,7 +3,6 @@
 
 #include "scientist.h"
 #include "scientistrepository.h"
-#include <vector>
 
 class ScientistService
 {

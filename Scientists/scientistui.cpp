@@ -49,16 +49,13 @@ void ScientistUI::start()
         else if(inp=="sort"){
 
             scientistService.Sort();
-
-        }
-        else if(inp=="q"){
-           break;
         }
 
         else{
             cout << "This is not a valid option!" << endl;
         }
         cout << endl <<"Choose add, read, find, sort or Q: ";
+
         cin >> inp;
     }
 

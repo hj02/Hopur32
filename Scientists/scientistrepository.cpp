@@ -26,14 +26,17 @@ void ScientistRepository::add()
           s.setName(n);
 
           cout << "Sex: ";
+          cin.ignore();
           getline(cin, sex);
           s.setSex(sex);
 
           cout << "Born year: ";
+          cin.ignore();
           getline(cin, b);
           s.setBday(b);
 
           cout << "Died year: ";
+          cin.ignore();
           getline(cin, d);
           s.setDday(d);
 
@@ -45,17 +48,13 @@ void ScientistRepository::add()
 
 void ScientistRepository::read(){
 
-    string file;  // nafnid a skránni sem vid viljum lesa inn
-
-    //cout << "Enter the name of the file you want to write in: ";
-    //cin >> file;
+    string file;
 
     file = "file.txt";
 
-    ifstream in(file.c_str()); // by til nyjan straum sem opnar skránna file (fallid c_str() breytur string i c-string, þ.e tekur /O af strengnum)
+    ifstream in(file.c_str());
     string line;
 
-    // athuga hvort skráin hefur ekki pottþett opnast
     if(!in.is_open()){
 
         cout << "The file didn't open!" << endl;
@@ -67,33 +66,28 @@ void ScientistRepository::read(){
         getline(in,line,';');
 
         while(!in.eof()){
-        for(int j=0; j<4; j++){
+         for(int j=0; j<4; j++){
 
-            if(j==0){
+              if(j==0){
                 s.setName(line);
 
-            }
-            if(j==1){
-                s.setSex(line);
-            }
-            if(j==2){
+              }
+              if(j==1){
+                 s.setSex(line);
+              }
+              if(j==2){
                 s.setBday(line);
-            }
-            if(j==3){
+              }
+              if(j==3){
                 s.setDday(line);
-                scientistVector.push_back(s); // allar medlimabreytur s hafa verid lesnar inn svo við baetum s inni vektorinn okkar og byrjum uppa nytt
-                in.ignore();// ignora endl
-            }
-             getline(in,line,';');
-          }
+                scientistVector.push_back(s);
+               }
 
+           getline(in,line,';');
+         }
+       }
 
-
-        }
-
-        in.close(); // loka skránni
-
-
+       in.close();
     }
 }
 
@@ -144,7 +138,7 @@ void ScientistRepository::find()
                co =  co + 1;
                if(co == 1)
                {
-                       cout << "Scientits which matched your search: "<< endl<<endl;
+                     cout << "Scientits which matched your search: "<< endl<<endl;
                }
 
                cout << endl;
@@ -268,7 +262,6 @@ else{
     }
 
     outs.close();}
-    read();
 }
 
 void ScientistRepository::READ(){
@@ -288,76 +281,57 @@ void ScientistRepository::READ(){
     }
 }
 
-
-void ScientistRepository::sortName(){
-
-
-    struct {
-           bool operator()(Scientist a, Scientist b)
-           {
-               return a.getName() < b.getName();
-           }
-       } comparename;
-       std::sort(scientistVector.begin(), scientistVector.end(), comparename);
-
+bool bdayComparator(Scientist a, Scientist b) {
+    return a.getBday() < b.getBday();
 }
 
-void ScientistRepository::sortSex(){
+bool ddayComparator(Scientist a, Scientist b) {
+    return a.getDday() < b.getDday();
+}
 
-    struct {
-    bool operator()(Scientist a, Scientist b)
-        {
-          return a.getSex() < b.getSex();
-        }
-     } comparesex;
+bool nameComparator(Scientist a, Scientist b) {
+    return a.getName() < b.getName();
+}
 
-    std::sort(scientistVector.begin(), scientistVector.end(), comparesex);
+bool sexComparator(Scientist a, Scientist b) {
+    return a.getSex() < b.getSex();
+}
 
+
+void ScientistRepository::sortDday() {
+    sort(scientistVector.begin(), scientistVector.end(), ddayComparator);
+}
+
+void ScientistRepository::sortName() {
+    sort(scientistVector.begin(), scientistVector.end(), nameComparator);
 }
 
 void ScientistRepository::sortBday(){
-
-    struct{
-
-    bool operator()(Scientist a, Scientist b)
-    {
-      return a.getBday() < b.getBday();
-     }
-     } comparebday;
-
-    std::sort(scientistVector.begin(), scientistVector.end(), comparebday);
-
+    sort(scientistVector.begin(), scientistVector.end(), bdayComparator);
 }
 
-void ScientistRepository::sortDday(){
-
-    struct {
-    bool operator()(Scientist a, Scientist b)
-    {
-      return a.getDday() < b.getDday();
-  }
- } comparedday;
-
-    std::sort(scientistVector.begin(), scientistVector.end(), comparedday);
-
+void ScientistRepository::sortSex(){
+    sort(scientistVector.begin(), scientistVector.end(), sexComparator);
 }
 
 void ScientistRepository::Sort(){
 
     string a;
 
-    cout<<"In which row would you like to sort";
-    cin >> a;
+    cout<<"In which row would you like to sort? "<<endl;
+    cout << "Choose 'name', 'sex', 'birthday' or 'date of death'."<<endl;
+    cin.ignore();
+    getline(cin,a);
     int b;
 
     if(a=="name")
         b=1;
     if(a=="sex")
-        b=1;
-    if(a=="birthday")
         b=2;
-    if(a=="date of death")
+    if(a=="birthday")
         b=3;
+    if(a=="date of death")
+        b=4;
 
    switch(b){
 
@@ -373,8 +347,9 @@ void ScientistRepository::Sort(){
            break;
        case 4:
            sortDday();
-           break;
-       default: break;
+           break;        
+       default:
+            break;
 
    }
    write();

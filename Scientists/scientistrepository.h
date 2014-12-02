@@ -18,6 +18,10 @@ private:
     void sortSex();
     void sortBday();
     void sortDday();
+    bool nameComparator(Scientist a, Scientist b);
+    bool sexComparator(Scientist a, Scientist b);
+    bool bdayComparator(Scientist a, Scientist b);
+    bool ddayComparator(Scientist a, Scientist b);
 
 
 
