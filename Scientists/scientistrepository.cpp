@@ -16,6 +16,7 @@ void ScientistRepository::add(Scientist s)
         string n,sex,b,d;
         vector<Scientist> v;
 
+          cout << endl;
           cout << "Name: ";
           cin.ignore();
           getline(cin, n);
@@ -146,6 +147,7 @@ void ScientistRepository::find()
                        cout << "Scientits which matched your search: "<< endl<<endl;
                }
 
+               cout << endl;
                cout << "Name: " << scientistVector[i].getName() << endl;
                cout << "Sex: "<< scientistVector[i].getSex() << endl;
                cout << "Birthday: "<< scientistVector[i].getBday() << endl;

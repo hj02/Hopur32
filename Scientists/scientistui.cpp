@@ -11,13 +11,14 @@ void ScientistUI::start()
     string inp;
     Scientist s;
 
-    cout << "Welcome to the Scientist database" << endl;
-    cout << "Please choose between the following: " << endl;
+    cout << "Welcome to the SCIENTIST database" << endl;
+    cout << "---------------------------------" << endl << endl;
+    cout << "Please choose between the following: " << endl << endl;
     cout << "Enter: 'add' to add a Scientist" << endl;
     cout << "Enter: 'read' to read from the file" << endl;
     cout << "Enter: 'find' to find a scientist"<< endl;
     cout << "Enter: 'sort' to sort the scientists" << endl;
-    cout << "To quit the program Enter: Q" << endl;
+    cout << "Enter: 'Q' to quit" << endl << endl;
     cout << "Choose now: ";
 
     cin >> inp;
@@ -29,18 +30,21 @@ void ScientistUI::start()
             scientistService.read();
             scientistService.add(s);
         }
-        if(inp == "read"){
+        else if(inp == "read"){
            scientistService.READ();
         }
-        if(inp=="find"){
+        else if(inp=="find"){
 
             scientistService.find();
         }
-        if(inp=="Q" || inp=="q"){
+        else if(inp=="Q" || inp=="q"){
 
             break;
         }
-        cout << "Choose add, read, find, sort or Q: ";
+        else{
+            cout << "This is not a valid option!" << endl;
+        }
+        cout << endl <<"Choose add, read, find, sort or Q: ";
         cin >> inp;
     }
 
