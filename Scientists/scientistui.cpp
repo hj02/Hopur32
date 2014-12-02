@@ -9,11 +9,11 @@ void ScientistUI::start()
 {
     scientistService.read();
     string inp;
-<<<<<<< HEAD
+
     scientistService.read();
-=======
+
     Scientist s;
->>>>>>> 184f4fa18ca6b3cc3ed054f245a173d37e319a92
+
 
     cout << "Welcome to the SCIENTIST database" << endl;
     cout << "---------------------------------" << endl << endl;
@@ -31,14 +31,13 @@ void ScientistUI::start()
 
 
         if(inp == "add"){
-<<<<<<< HEAD
+
 
             scientistService.add();
 
-=======
+
             scientistService.read();
-            scientistService.add(s);
->>>>>>> 184f4fa18ca6b3cc3ed054f245a173d37e319a92
+
         }
         else if(inp == "read"){
            scientistService.READ();
@@ -47,16 +46,13 @@ void ScientistUI::start()
 
             scientistService.find();
         }
-<<<<<<< HEAD
         if(inp=="sort"){
 
             scientistService.sort();
 
         }
-        if(inp=="Q"){
-=======
         else if(inp=="Q" || inp=="q"){
->>>>>>> 184f4fa18ca6b3cc3ed054f245a173d37e319a92
+
 
             break;
         }
@@ -68,4 +64,5 @@ void ScientistUI::start()
     }
 
 }
+
 
