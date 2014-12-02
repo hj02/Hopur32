@@ -7,6 +7,7 @@ ScientistUI::ScientistUI()
 }
 void ScientistUI::start()
 {
+    scientistService.read();
     string inp;
     Scientist s;
 

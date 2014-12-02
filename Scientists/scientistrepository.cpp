@@ -46,8 +46,10 @@ void ScientistRepository::read(){
 
     string file;  // nafnid a skránni sem vid viljum lesa inn
 
-    cout << "Enter the name of the file you want to write in: ";
-    cin >> file;
+    //cout << "Enter the name of the file you want to write in: ";
+    //cin >> file;
+
+    file = "file.txt";
 
     ifstream in(file.c_str()); // by til nyjan straum sem opnar skránna file (fallid c_str() breytur string i c-string, þ.e tekur /O af strengnum)
     string line;
@@ -60,7 +62,7 @@ void ScientistRepository::read(){
 
     else{
         Scientist s;
-        cout <<"Success! The file is open!"<< endl;
+        //cout <<"Success! The file is open!"<< endl;
         getline(in,line,';');
 
         while(!in.eof()){
@@ -242,9 +244,10 @@ void ScientistRepository::firstToUpper(string& finding, int lengd){
 
 void ScientistRepository::write(){
 
-cout << "Enter the name of the file you want to write in: ";
+//cout << "Enter the name of the file you want to write in: ";
 string file;
-cin >> file;
+//cin >> file;
+file = "file.txt";
 
 ofstream outs (file.c_str(), ofstream::trunc);
 
