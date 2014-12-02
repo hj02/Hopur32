@@ -39,7 +39,7 @@ void ScientistRepository::read(){
 
     string file;  // nafnid a skránni sem vid viljum lesa inn
 
-    cout << "Skrifaðu inn heiti á skrá sem þú vilt að lesið er úr: ";
+    cout << "Enter the name of the file you want to write in: ";
     cin >> file;
 
     ifstream in(file.c_str()); // by til nyjan straum sem opnar skránna file (fallid c_str() breytur string i c-string, þ.e tekur /O af strengnum)
@@ -48,12 +48,12 @@ void ScientistRepository::read(){
     // athuga hvort skráin hefur ekki pottþett opnast
     if(!in.is_open()){
 
-        cout << "Ekki tokst ad opna skra";
+        cout << "The file didn't open!" << endl;
     }
 
     else{
         Scientist s;
-        cout <<"það tókst að opna skrá!"<< endl;
+        cout <<"Success! The file is open!"<< endl;
         getline(in,line,';');
 
         while(!in.eof()){
@@ -111,14 +111,14 @@ void ScientistRepository::print(){
 void ScientistRepository::find()
 {
 
-    cout << "Sladu inn leitarord: ";
+    cout << "Enter your search option: ";
     string finding;
     int  a = scientistVector.size();
 
     cin.ignore();
     getline(cin, finding);
 
-    cout << "Vísindamenn sem possudu vid leitarord: "<< endl<<endl;
+    cout << "Scientits which matched your search: "<< endl<<endl;
 
 
     int lengd = finding.length();
@@ -215,7 +215,7 @@ void ScientistRepository::firstToUpper(string& finding, int lengd){
 
 void ScientistRepository::write(){
 
-cout << "sladu inn skranna sem þu vilt skrifa i: ";
+cout << "Enter the name of the file you want to write in: ";
 string file;
 cin >> file;
 
@@ -225,7 +225,7 @@ ofstream outs (file.c_str(), ofstream::trunc);
 // athuga hvort skráin hefur ekki pottþett opnast
 if(!outs.is_open()){
 
-    cout << "Ekki tokst ad opna skra";
+    cout << "The file didn't open! " << endl;
 }
 else{
 
