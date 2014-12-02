@@ -1,9 +1,5 @@
 #include "scientistrepository.h"
-#include <fstream>
-#include <string>
-#include <cctype>
-#include <iostream>
-#include <algorithm>
+
 using namespace std;
 
 
@@ -21,13 +17,14 @@ void ScientistRepository::add()
           cout << "Name: ";
           cin.ignore();
           getline(cin, n);
-          int lengd = n.length();
-          firstToUpper(n, lengd);
+          stringToLower(n);
+          firstToUpper(n);
           s.setName(n);
 
           cout << "Sex: ";
           cin.ignore();
           getline(cin, sex);
+          stringToLower(sex);
           s.setSex(sex);
 
           cout << "Born year: ";
@@ -48,12 +45,11 @@ void ScientistRepository::add()
 
 void ScientistRepository::read(){
 
-    string file;
+    string file,line;
 
     file = "file.txt";
 
     ifstream in(file.c_str());
-    string line;
 
     if(!in.is_open()){
 
@@ -91,17 +87,6 @@ void ScientistRepository::read(){
     }
 }
 
-vector<Scientist> ScientistRepository::getVector(){
-
-   return scientistVector;
-
-}
-
-void ScientistRepository::setVector(vector<Scientist> v){
-
-    scientistVector=v;
-}
-
 void ScientistRepository::print(){
 
     int a=scientistVector.size();
@@ -122,12 +107,9 @@ void ScientistRepository::find()
     cin.ignore();
     getline(cin, finding);
 
+    stringToLower(finding);
 
-    int lengd = finding.length();
-
-    stringToLower(lengd,finding);
-
-    firstToUpper(finding, lengd);
+    firstToUpper(finding);
 
 
     for(int i = 0; i < a; i++)
@@ -208,30 +190,32 @@ void ScientistRepository::find()
     }
 }
 
-void ScientistRepository::stringToLower(int lengd, string& finding){
+void ScientistRepository::stringToLower(string& finding){
 
-    for(int i = 0; i < lengd ; i ++)
+    int length=finding.length();
+    for(int i = 0; i < length ; i ++)
     {
         finding[i] = tolower(finding[i]);
 
     }
 }
 
-void ScientistRepository::firstToUpper(string& finding, int lengd){
-    int teljari = -1;
+void ScientistRepository::firstToUpper(string& finding){
+    int length=finding.length();
+    int counter = -1;
 
     finding[0] = toupper(finding[0]);
 
-    for(int i = 0; i < lengd; i++)
+    for(int i = 0; i < length; i++)
     {
         if(isspace(finding[i]))
         {
-          teljari = teljari -1;
+          counter = counter -1;
         }
-        if(teljari < -1)
+        if(counter < -1)
         {
             finding[i+1] = toupper(finding[i+1]);
-            teljari = -1;
+            counter = -1;
         }
 
     }
@@ -240,29 +224,29 @@ void ScientistRepository::firstToUpper(string& finding, int lengd){
 
 void ScientistRepository::write(){
 
-//cout << "Enter the name of the file you want to write in: ";
-string file;
-//cin >> file;
-file = "file.txt";
+    //cout << "Enter the name of the file you want to write in: ";
+    string file;
+    //cin >> file;
+    file = "file.txt";
 
-ofstream outs (file.c_str(), ofstream::trunc);
+    ofstream outs (file.c_str(), ofstream::trunc);
 
 
-// athuga hvort skráin hefur ekki pottþett opnast
-if(!outs.is_open()){
+    // athuga hvort skráin hefur ekki pottþett opnast
+    if(!outs.is_open()){
 
-    cout << "The file didn't open! " << endl;
-}
-else{
-
-    int a=scientistVector.size();
-
-    for(int i=0; i<a; i++){
-        outs<< scientistVector[i];
+        cout << "The file didn't open! " << endl;
     }
+    else{
 
-    outs.close();}
-}
+        int a=scientistVector.size();
+
+        for(int i=0; i<a; i++){
+            outs<< scientistVector[i];
+        }
+
+        outs.close();}
+    }
 
 void ScientistRepository::READ(){
 
@@ -281,9 +265,11 @@ void ScientistRepository::READ(){
     }
 }
 
+
 bool bdayComparator(Scientist a, Scientist b) {
     return a.getBday() < b.getBday();
 }
+
 
 bool ddayComparator(Scientist a, Scientist b) {
     return a.getDday() < b.getDday();
@@ -322,6 +308,10 @@ void ScientistRepository::Sort(){
     cout << "Choose 'name', 'sex', 'birthday' or 'date of death'."<<endl;
     cin.ignore();
     getline(cin,a);
+
+
+    stringToLower(a);
+
     int b;
 
     if(a=="name")
@@ -349,8 +339,10 @@ void ScientistRepository::Sort(){
            sortDday();
            break;        
        default:
+            cout <<"Not a valid option!";
             break;
 
    }
    write();
 }
+

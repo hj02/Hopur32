@@ -1,10 +1,9 @@
 #ifndef SCIENTISTUI_H
 #define SCIENTISTUI_H
 
+#include "scientistservice.h"
 #include <string>
 #include <iostream>
-#include "scientistservice.h"
-#include <vector>
 
 class ScientistUI
 {

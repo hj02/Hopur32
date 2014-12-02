@@ -44,3 +44,8 @@ void ScientistService::Sort(){
     scientistRepo.Sort();
 
 }
+
+void ScientistService::stringToLower(string& str){
+
+    scientistRepo.stringToLower(str);
+}

@@ -1,5 +1,4 @@
 #include "scientistui.h"
-#include <cctype>
 using namespace std;
 
 ScientistUI::ScientistUI()
@@ -25,14 +24,12 @@ void ScientistUI::start()
     cout << "Choose now: ";
 
     cin >> inp;
-    int a= inp.length();
-    for(int i = 0; i < a; i ++)
-    {
-        inp[i] = tolower(inp[i]);
 
-    }
+        scientistService.stringToLower(inp);
 
-    while(inp !="q"){
+
+
+    while(inp !="q" && inp != "Q"){
 
         if(inp == "add"){
 
@@ -54,9 +51,12 @@ void ScientistUI::start()
         else{
             cout << "This is not a valid option!" << endl;
         }
+
         cout << endl <<"Choose add, read, find, sort or Q: ";
 
         cin >> inp;
+
+        scientistService.stringToLower(inp);
     }
 
 }

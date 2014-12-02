@@ -17,6 +17,7 @@ public:
     void write();
     void READ();
     void Sort();
+    void stringToLower(string& str);
 };
 
 
