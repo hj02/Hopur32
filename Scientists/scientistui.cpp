@@ -22,7 +22,7 @@ void ScientistUI::start()
 
     cin >> inp;
 
-    while(inp != "Q"){
+    while(inp != "Q" && inp != "q"){
 
 
         if(inp == "add"){
@@ -36,7 +36,7 @@ void ScientistUI::start()
 
             scientistService.find();
         }
-        if(inp=="Q"){
+        if(inp=="Q" || inp=="q"){
 
             break;
         }
