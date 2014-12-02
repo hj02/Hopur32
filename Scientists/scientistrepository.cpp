@@ -121,9 +121,16 @@ void ScientistRepository::find()
                cout << scientistVector[i];
            }
 
+
            if(finding == scientistVector[i].getName())
            {
                cout << scientistVector[i];
+           }
+
+           else{
+
+               finding[0]=tolower(finding[0]);
+
            }
            if(finding == scientistVector[i].getSex())
            {
@@ -137,6 +144,9 @@ void ScientistRepository::find()
            {
                cout << scientistVector[i];
            }
+
+           finding[0]=toupper(finding[0]);
+
         }
 
 
