@@ -29,7 +29,7 @@ void ScientistUI::start()
 
 
 
-    while(inp !="q" && inp != "Q"){
+    while(inp !="q"){
 
         if(inp == "add"){
 

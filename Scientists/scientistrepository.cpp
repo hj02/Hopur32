@@ -265,7 +265,7 @@ void ScientistRepository::READ(){
     }
 }
 
-
+/*
 bool bdayComparator(Scientist a, Scientist b) {
     return a.getBday() < b.getBday();
 }
@@ -281,22 +281,51 @@ bool nameComparator(Scientist a, Scientist b) {
 
 bool sexComparator(Scientist a, Scientist b) {
     return a.getSex() < b.getSex();
-}
+}*/
 
 
 void ScientistRepository::sortDday() {
+    struct{
+
+       bool operator()(Scientist a, Scientist b)
+       {
+         return a.getDday() < b.getDday();
+        }
+    }ddayComparator;
     sort(scientistVector.begin(), scientistVector.end(), ddayComparator);
 }
 
 void ScientistRepository::sortName() {
+    struct{
+
+       bool operator()(Scientist a, Scientist b)
+       {
+         return a.getName() < b.getName();
+        }
+   } nameComparator;
+
     sort(scientistVector.begin(), scientistVector.end(), nameComparator);
 }
 
 void ScientistRepository::sortBday(){
+    struct{
+
+       bool operator()(Scientist a, Scientist b)
+       {
+         return a.getBday() < b.getBday();
+        }
+   } bdayComparator;
     sort(scientistVector.begin(), scientistVector.end(), bdayComparator);
 }
 
 void ScientistRepository::sortSex(){
+    struct{
+
+       bool operator()(Scientist a, Scientist b)
+       {
+         return a.getSex() < b.getSex();
+        }
+   } sexComparator;
     sort(scientistVector.begin(), scientistVector.end(), sexComparator);
 }
 
