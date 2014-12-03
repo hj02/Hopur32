@@ -27,11 +27,11 @@ void ScientistRepository::add()
           stringToLower(sex);
           s.setSex(sex);
 
-          cout << "Born year: ";
+          cout << "Date of birth: ";
           getline(cin, b);
           s.setBday(b);
 
-          cout << "Died year: ";
+          cout << "Date of death: ";
           getline(cin, d);
           s.setDday(d);
 
@@ -79,14 +79,9 @@ void ScientistRepository::read(){
             }
              getline(in,line,';');
           }
-
-
-
         }
 
         in.close(); // loka skránni
-
-
     }
 }
 
@@ -104,7 +99,7 @@ void ScientistRepository::read(){
 void ScientistRepository::find()
 {
     int co = 0;
-    cout << "Enter your search option: ";
+    cout << endl << "Scientist would you like to find: ";
     string finding;
     int  a = scientistVector.size();
 
@@ -124,7 +119,7 @@ void ScientistRepository::find()
                co =  co + 1;
                if(co == 1)
                {
-                       cout << "Scientits which matched your search: "<< endl<<endl;
+                       cout << endl << "Scientists which matched your search: "<< endl;
                }
 
                cout << endl;
@@ -146,7 +141,7 @@ void ScientistRepository::find()
                co =  co + 1;
                if(co == 1)
                {
-                       cout << "Scientits which matched your search: "<< endl<<endl;
+                       cout << endl << "Scientists which matched your search: "<< endl;
                }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
@@ -160,7 +155,7 @@ void ScientistRepository::find()
                co =  co + 1;
                if(co == 1)
                {
-                       cout << "Scientits which matched your search: "<< endl<<endl;
+                       cout << endl << "Scientists which matched your search: "<< endl;
                }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
@@ -174,7 +169,7 @@ void ScientistRepository::find()
                co =  co + 1;
                if(co == 1)
                {
-                       cout << "Scientits which matched your search: "<< endl<<endl;
+                       cout << endl << "Scientists which matched your search: "<< endl;
                }
 
                cout << "Name: " << scientistVector[i].getName() << endl;
@@ -190,7 +185,7 @@ void ScientistRepository::find()
 
     if(co == 0 )
     {
-        cout << "Scientist not found!" << endl << endl;
+        cout << endl << "Scientist not found!" << endl << endl;
     }
 }
 
@@ -303,13 +298,12 @@ void ScientistRepository::sortSex(){
     sort(scientistVector.begin(), scientistVector.end(), sexComparator);
 }
 
-
-
 void ScientistRepository::Sort(){
 
     string a;
 
-    cout<<"In which row would you like to sort: ";
+    cout<< endl << "How would you like to sort? by 'name', 'sex', 'birthday' or 'date of death'? "<< endl;
+    cout << "Choose now: ";
     cin.ignore();
     getline(cin,a);
     int b;

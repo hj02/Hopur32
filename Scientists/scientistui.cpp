@@ -54,7 +54,7 @@ void ScientistUI::start()
         else{
             cout << "This is not a valid option!" << endl;
         }
-        cout << endl <<"Choose add, read, find, sort or Q: ";
+        cout << "Choose add, read, find, sort or Q: ";
         cin >> inp;
         scientistService.stringToLower(inp);
     }
