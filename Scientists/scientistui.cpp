@@ -1,5 +1,5 @@
 #include "scientistui.h"
-#include <cctype>
+
 using namespace std;
 
 ScientistUI::ScientistUI()

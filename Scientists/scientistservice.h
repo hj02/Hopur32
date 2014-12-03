@@ -3,7 +3,6 @@
 
 #include "scientist.h"
 #include "scientistrepository.h"
-#include <vector>
 
 class ScientistService
 {
@@ -13,7 +12,7 @@ public:
     ScientistService();
     void add();
     void read();
-    void print();
+    //void print();
     void find();
     void write();
     void READ();

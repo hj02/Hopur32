@@ -16,12 +16,12 @@ void ScientistService::read(){
     scientistRepo.read();
 }
 
-void ScientistService::print(){
+/*void ScientistService::print(){
 
 
    scientistRepo.print();
 
-}
+}*/
 
 void ScientistService::find(){
 

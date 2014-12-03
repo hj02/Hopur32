@@ -1,10 +1,13 @@
 #ifndef SCIENTISTREPOSITORY_H
 #define SCIENTISTREPOSITORY_H
 
-#include <vector>
 #include "scientist.h"
 #include <iostream>
 #include <algorithm>
+#include <vector>
+#include <fstream>
+#include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -23,12 +26,10 @@ private:
 public:
     ScientistRepository();
     void add();
-    void read(); //les gogn ur skra og breytir i vektor þ.e vektorinn scientistVector (sem er private breyta)
-    void print(); // prentar ut vektorinn scientistVector
+    void read();
+    // void print();
     void find();
     void write();
-    vector<Scientist> getVector(); //gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
-    void setVector(vector<Scientist> v);// gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
     void READ();
     void Sort();
     void stringToLower(string& finding);

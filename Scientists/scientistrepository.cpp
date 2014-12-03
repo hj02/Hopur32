@@ -1,9 +1,5 @@
 #include "scientistrepository.h"
-#include <fstream>
-#include <string>
-#include <cctype>
-#include <iostream>
-#include <algorithm>
+
 using namespace std;
 
 
@@ -17,15 +13,18 @@ void ScientistRepository::add()
         Scientist s;
         string n,sex,b,d;
 
+
           cout << endl;
           cout << "Name: ";
           cin.ignore();
           getline(cin, n);
+          stringToLower(n);
           firstToUpper(n);
           s.setName(n);
 
           cout << "Sex: ";
           getline(cin, sex);
+          stringToLower(sex);
           s.setSex(sex);
 
           cout << "Born year: ";
@@ -44,17 +43,12 @@ void ScientistRepository::add()
 
 void ScientistRepository::read(){
 
-    string file;  // nafnid a skránni sem vid viljum lesa inn
-
-    //cout << "Enter the name of the file you want to write in: ";
+    string file,line;
     //cin >> file;
-
     file = "file.txt";
 
-    ifstream in(file.c_str()); // by til nyjan straum sem opnar skránna file (fallid c_str() breytur string i c-string, þ.e tekur /O af strengnum)
-    string line;
+    ifstream in(file.c_str());
 
-    // athuga hvort skráin hefur ekki pottþett opnast
     if(!in.is_open()){
 
         cout << "The file didn't open!" << endl;
@@ -96,18 +90,8 @@ void ScientistRepository::read(){
     }
 }
 
-vector<Scientist> ScientistRepository::getVector(){
 
-   return scientistVector;
-
-}
-
-void ScientistRepository::setVector(vector<Scientist> v){
-
-    scientistVector=v;
-}
-
-void ScientistRepository::print(){
+/*void ScientistRepository::print(){
 
     int a=scientistVector.size();
 
@@ -115,7 +99,7 @@ void ScientistRepository::print(){
         cout<< scientistVector[i];
     }
 
-}
+}*/
 
 void ScientistRepository::find()
 {
@@ -220,21 +204,21 @@ void ScientistRepository::stringToLower(string& finding){
 }
 
 void ScientistRepository::firstToUpper(string& finding){
-    int teljari = -1;
-    int lengd = finding.length();
+    int counter = -1;
+    int length = finding.length();
 
     finding[0] = toupper(finding[0]);
 
-    for(int i = 0; i < lengd; i++)
+    for(int i = 0; i < length; i++)
     {
         if(isspace(finding[i]))
         {
-          teljari = teljari -1;
+          counter = counter -1;
         }
-        if(teljari < -1)
+        if(counter < -1)
         {
             finding[i+1] = toupper(finding[i+1]);
-            teljari = -1;
+            counter = -1;
         }
 
     }
@@ -243,28 +227,28 @@ void ScientistRepository::firstToUpper(string& finding){
 
 void ScientistRepository::write(){
 
-//cout << "Enter the name of the file you want to write in: ";
-string file;
-//cin >> file;
-file = "file.txt";
+    //cout << "Enter the name of the file you want to write in: ";
+    string file;
+    //cin >> file;
+    file = "file.txt";
 
-ofstream outs (file.c_str(), ofstream::trunc);
+    ofstream outs (file.c_str(), ofstream::trunc);
 
 
-// athuga hvort skráin hefur ekki pottþett opnast
-if(!outs.is_open()){
 
-    cout << "The file didn't open! " << endl;
-}
-else{
+    if(!outs.is_open()){
 
-    int a=scientistVector.size();
-
-    for(int i=0; i<a; i++){
-        outs<< scientistVector[i];
+        cout << "The file didn't open! " << endl;
     }
+    else{
 
-    outs.close();
+        int a=scientistVector.size();
+
+        for(int i=0; i<a; i++){
+            outs<< scientistVector[i];
+        }
+
+        outs.close();
     }
 }
 
@@ -359,6 +343,5 @@ void ScientistRepository::Sort(){
             break;
 
    }
-   write();
    READ();
 }
