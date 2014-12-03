@@ -25,12 +25,8 @@ void ScientistUI::start()
     cout << "Choose now: ";
 
     cin >> inp;
-    int a= inp.length();
-    for(int i = 0; i < a; i ++)
-    {
-        inp[i] = tolower(inp[i]);
 
-    }
+    scientistService.stringToLower(inp);
 
     while(inp !="q"){
 
@@ -48,7 +44,7 @@ void ScientistUI::start()
         }
         else if(inp=="sort"){
 
-            scientistService.Sort();
+           scientistService.Sort();
 
         }
         else if(inp=="q"){
@@ -60,6 +56,7 @@ void ScientistUI::start()
         }
         cout << endl <<"Choose add, read, find, sort or Q: ";
         cin >> inp;
+        scientistService.stringToLower(inp);
     }
 
 }

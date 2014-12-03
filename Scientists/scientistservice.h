@@ -18,6 +18,7 @@ public:
     void write();
     void READ();
     void Sort();
+    void stringToLower(std::string& finding);
 };
 
 

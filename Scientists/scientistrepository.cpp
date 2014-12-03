@@ -21,8 +21,7 @@ void ScientistRepository::add()
           cout << "Name: ";
           cin.ignore();
           getline(cin, n);
-          int lengd = n.length();
-          firstToUpper(n, lengd);
+          firstToUpper(n);
           s.setName(n);
 
           cout << "Sex: ";
@@ -128,12 +127,9 @@ void ScientistRepository::find()
     cin.ignore();
     getline(cin, finding);
 
+    stringToLower(finding);
 
-    int lengd = finding.length();
-
-    stringToLower(lengd,finding);
-
-    firstToUpper(finding, lengd);
+    firstToUpper(finding);
 
 
     for(int i = 0; i < a; i++)
@@ -214,8 +210,8 @@ void ScientistRepository::find()
     }
 }
 
-void ScientistRepository::stringToLower(int lengd, string& finding){
-
+void ScientistRepository::stringToLower(string& finding){
+    int lengd = finding.length();
     for(int i = 0; i < lengd ; i ++)
     {
         finding[i] = tolower(finding[i]);
@@ -223,8 +219,9 @@ void ScientistRepository::stringToLower(int lengd, string& finding){
     }
 }
 
-void ScientistRepository::firstToUpper(string& finding, int lengd){
+void ScientistRepository::firstToUpper(string& finding){
     int teljari = -1;
+    int lengd = finding.length();
 
     finding[0] = toupper(finding[0]);
 
@@ -267,8 +264,8 @@ else{
         outs<< scientistVector[i];
     }
 
-    outs.close();}
-    read();
+    outs.close();
+    }
 }
 
 void ScientistRepository::READ(){
@@ -289,75 +286,58 @@ void ScientistRepository::READ(){
 }
 
 
-void ScientistRepository::sortName(){
-
-
-    struct {
-           bool operator()(Scientist a, Scientist b)
-           {
-               return a.getName() < b.getName();
-           }
-       } comparename;
-       std::sort(scientistVector.begin(), scientistVector.end(), comparename);
-
+bool bdayComparator(Scientist a, Scientist b) {
+    return a.getBday() < b.getBday();
 }
 
-void ScientistRepository::sortSex(){
+bool ddayComparator(Scientist a, Scientist b) {
+    return a.getDday() < b.getDday();
+}
 
-    struct {
-    bool operator()(Scientist a, Scientist b)
-        {
-          return a.getSex() < b.getSex();
-        }
-     } comparesex;
+bool nameComparator(Scientist a, Scientist b) {
+    return a.getName() < b.getName();
+}
 
-    std::sort(scientistVector.begin(), scientistVector.end(), comparesex);
+bool sexComparator(Scientist a, Scientist b) {
+    return a.getSex() < b.getSex();
+}
 
+
+void ScientistRepository::sortDday() {
+    sort(scientistVector.begin(), scientistVector.end(), ddayComparator);
+}
+
+void ScientistRepository::sortName() {
+    sort(scientistVector.begin(), scientistVector.end(), nameComparator);
 }
 
 void ScientistRepository::sortBday(){
-
-    struct{
-
-    bool operator()(Scientist a, Scientist b)
-    {
-      return a.getBday() < b.getBday();
-     }
-     } comparebday;
-
-    std::sort(scientistVector.begin(), scientistVector.end(), comparebday);
-
+    sort(scientistVector.begin(), scientistVector.end(), bdayComparator);
 }
 
-void ScientistRepository::sortDday(){
-
-    struct {
-    bool operator()(Scientist a, Scientist b)
-    {
-      return a.getDday() < b.getDday();
-  }
- } comparedday;
-
-    std::sort(scientistVector.begin(), scientistVector.end(), comparedday);
-
+void ScientistRepository::sortSex(){
+    sort(scientistVector.begin(), scientistVector.end(), sexComparator);
 }
+
+
 
 void ScientistRepository::Sort(){
 
     string a;
 
-    cout<<"In which row would you like to sort";
-    cin >> a;
+    cout<<"In which row would you like to sort: ";
+    cin.ignore();
+    getline(cin,a);
     int b;
 
     if(a=="name")
         b=1;
     if(a=="sex")
-        b=1;
-    if(a=="birthday")
         b=2;
-    if(a=="date of death")
+    if(a=="birthday")
         b=3;
+    if(a=="date of death")
+        b=4;
 
    switch(b){
 
@@ -374,8 +354,11 @@ void ScientistRepository::Sort(){
        case 4:
            sortDday();
            break;
-       default: break;
+       default:
+            cout << "This is not a valid option!" << endl;
+            break;
 
    }
    write();
+   READ();
 }

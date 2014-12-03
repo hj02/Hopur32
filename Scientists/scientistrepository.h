@@ -12,8 +12,7 @@ class ScientistRepository
 {
 private:
     vector<Scientist> scientistVector;
-    void firstToUpper(string& finding, int lengd);
-    void stringToLower(int lengd, string& finding);
+    void firstToUpper(string& finding);
     void sortName();
     void sortSex();
     void sortBday();
@@ -32,6 +31,9 @@ public:
     void setVector(vector<Scientist> v);// gaeti ordid hjalplegt fall-hefur ekki verid notad hingad til
     void READ();
     void Sort();
+    void stringToLower(string& finding);
+
+
 
 };
 

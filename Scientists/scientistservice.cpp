@@ -44,3 +44,8 @@ void ScientistService::Sort(){
     scientistRepo.Sort();
 
 }
+void ScientistService::stringToLower(std::string& finding){
+
+    scientistRepo.stringToLower(finding);
+
+}
