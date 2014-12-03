@@ -344,4 +344,5 @@ void ScientistRepository::Sort(){
 
    }
    READ();
+   write();
 }
