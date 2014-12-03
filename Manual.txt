@@ -1,0 +1,31 @@
+----------------------------------
+Notendaleiðbeiningar - User manual
+----------------------------------
+Á ÍSLENSKU
+----------
+Leiðbeiningar um notkun Scientist (Tölvufræðingar).
+
+Þegar forritið er keyrt eru eftirfarandi valmöguleikar í boði:
+
+1. 'add' bæta við tölvufræðing. 
+2. 'read' birta þá tölvufræðinga sem þegar hafa verið skráðir. 
+3. 'find' leita að tölvufræðing, eftir fullu nafni, kyni, afmælisdegi eða dánardegi.
+4. 'sort' birta raðaðan lista þar sem hægt er að raða eftir nafni, kyni, fæðingadegi eða dánardegi,
+5. 'q' hætta keyrslu forritsins.
+
+Forritið notar skrá 'file.txt' til að skrifa í upplýsingar um tölvufræðingana. 
+
+-----------
+IN ENGLISH
+-----------
+User manual for the Scientist program.
+
+When you run the program, you have a choice of the following options:
+
+1. 'add' to add a scientist. 
+2. 'read' to print the scientists already added to screen. 
+3. 'find' to find a scientist by full name, sex, birhday or date of death.
+4. 'sort' to print a sorted list, where you can choose to sort by name, sex, birhday or date of death.
+5. 'q' to quit the program.
+
+The program uses the a text file 'file.txt' to write information about the scientists.
