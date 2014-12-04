@@ -8,6 +8,7 @@
 #include <fstream>
 #include <string>
 #include <cctype>
+#include <QtSql/QSqlDatabase>
 
 using namespace std;
 
